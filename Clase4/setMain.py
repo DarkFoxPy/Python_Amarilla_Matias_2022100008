@@ -15,6 +15,11 @@ def hello():
     # Definimos una ruta para el endpoint raíz "/" que responde a solicitudes GET
     return 'Hola Unida!'
     # Al acceder a la raíz del sitio, se devuelve este mensaje
+@app.route('/hola', methods=['GET'])
+def hello():
+    # Definimos una ruta para el endpoint raíz "/" que responde a solicitudes GET
+    return 'Hola 2 Unida!'
+    # Al acceder a la raíz del sitio, se devuelve este mensaje
 
 if __name__ == "__main__":
     # Este bloque se ejecuta solo si el script se ejecuta directamente (no importado como módulo)
