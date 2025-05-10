@@ -13,8 +13,8 @@ def llamarServicioSet():
 
 def inicializarVariables(user, password):
     global codRes, menRes, accion
-    userLocal = "Unida"
-    passLocal = "1234"
+    userLocal = "dcaballero"
+    passLocal = "unida123"
     codRes = 'SIN_ERROR'
     menRes = 'OK'
     try:
