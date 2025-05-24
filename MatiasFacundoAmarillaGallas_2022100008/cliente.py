@@ -1,29 +1,17 @@
-import pymysql
+clientes_registrados = {"5574717"}
 
-def check_client(ci):
-    try:
-       
-        connection = pymysql.connect(
-            host='localhost',
-            user='unida',  
-            password='unida123',  
-            database='cliente',  
-            charset='utf8mb4',
-            cursorclass=pymysql.cursors.DictCursor
-        )
-
-        with connection.cursor() as cursor:
-           
-            sql = "SELECT ci FROM clientes WHERE ci = %s"
-            cursor.execute(sql, (ci,))
-            result = cursor.fetchone()
-            
-           
-            return result is not None
-
-    except pymysql.MySQLError as e:
-        print(f"Error en la base de datos: {e}")
-        return False
-    finally:
-        if 'connection' in locals():
-            connection.close()
+def verificar_cliente(ci):
+    if ci in clientes_registrados:
+        return {
+            "accion": "Success",
+            "codRes": "SIN_ERROR",
+            "menRes": "OK",
+            "ci": ci
+        }
+    else:
+        return {
+            "accion": "Cliente no está en el sistema",
+            "codRes": "ERROR",
+            "menRes": "Error cliente",
+            "ci": ci
+        }
