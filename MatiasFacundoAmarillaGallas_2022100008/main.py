@@ -17,7 +17,8 @@ def cliente_lookup():
                 "ci": ""
             }), 400
 
-      
+       
+
         result = cliente.check_client(ci)
         
         if result:
@@ -45,3 +46,4 @@ def cliente_lookup():
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5003, debug=True)
+    
