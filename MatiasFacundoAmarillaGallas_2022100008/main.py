@@ -9,7 +9,7 @@ app.register_blueprint(cliente)
 
 @app.route('/', methods=['GET'])
 def hello():
-    return 'Hola Mundo'
+    return 'Examen python 2025 Cliente'
 
 if __name__ == "__main__":
     app.run(host='localhost', debug=True, port=5003)

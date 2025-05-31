@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 
 cliente = Blueprint('cliente', __name__)
 
-@Cliente.route('/cliente', methods=['POST'])
+@cliente.route('/cliente', methods=['POST'])
 def llamarServicioSet():
     ci = request.json.get('ci')
    
@@ -16,7 +16,7 @@ def llamarServicioSet():
     }
     return jsonify(salida)
 
-def inicializarVariables(user, password):
+def inicializarVariables(ci):
     ciLocal = "4807206"
     codRes = 'SIN_ERROR'
     menRes = 'OK'
