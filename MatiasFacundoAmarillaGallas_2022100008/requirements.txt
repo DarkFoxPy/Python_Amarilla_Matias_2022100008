@@ -1,0 +1,2 @@
+Flask==2.0.2  # Framework web ligero para construir aplicaciones web en Python.
+Werkzeug==2.1.2  # Librería que maneja internamente solicitudes HTTP, sesiones, y enrutamiento; base fundamental que usa Flask.

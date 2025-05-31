@@ -1,17 +1,35 @@
-clientes_registrados = {"4807206"}
+from flask import Blueprint, request, jsonify
 
-def verificar_cliente(ci):
-    if ci in clientes_registrados:
-        return {
-            "accion": "Success",
-            "codRes": "SIN_ERROR",
-            "menRes": "OK",
-            "ci": ci
-        }
-    else:
-        return {
-            "accion": "Cliente no está en el sistema",
-            "codRes": "ERROR",
-            "menRes": "Error cliente",
-            "ci": ci
-        }
+cliente = Blueprint('cliente', __name__)
+
+@Cliente.route('/cliente', methods=['POST'])
+def llamarServicioSet():
+    ci = request.json.get('ci')
+   
+    codRes, menRes, accion = inicializarVariables(ci)
+
+    salida = {
+        'codRes': codRes,
+        'menRes': menRes,
+        'ci': ci,
+        'accion': accion
+    }
+    return jsonify(salida)
+
+def inicializarVariables(user, password):
+    ciLocal = "4807206"
+    codRes = 'SIN_ERROR'
+    menRes = 'OK'
+    
+    try:
+        if ciLocal == ci:
+            accion = "Success"
+        else:
+            print("Cliente no existe")
+            accion = "Cliente no encontrado"
+            codRes = 'ERROR'
+            menRes = 'Cliente no existe en db'
+
+
+    except Exception as e:
+        print("ERROR", str(e))
